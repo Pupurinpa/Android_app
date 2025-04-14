@@ -5,7 +5,7 @@ void main() {
 }
 
 class CalculatorApp extends StatelessWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +20,7 @@ class CalculatorApp extends StatelessWidget {
   }
 }
 class CalculatorHomePage extends StatefulWidget {
-  const CalculatorHomePage({Key? key}) : super(key: key);
+  const CalculatorHomePage({super.key});
 
   @override
   _CalculatorHomePageState createState() => _CalculatorHomePageState();
