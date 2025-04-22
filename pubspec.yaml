@@ -58,7 +58,12 @@ flutter:
   uses-material-design: true
   assets:
     - Images/gundam.jpeg
-
+    - Images/alpukat.jpeg
+    - Images/kiwi.jpeg
+    - Images/manggis.jpeg
+    - Images/Mikan.jpeg
+    - Images/pisang.jpg
+    - Images/salak.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
