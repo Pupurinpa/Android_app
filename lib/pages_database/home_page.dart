@@ -95,26 +95,35 @@ class _HomePageState extends State<HomePage> {
             ),
             Divider(),
             Expanded(
-              child: ListView.builder(
+                child: ListView.builder(
                 itemCount: mahasiswa.length,
                 itemBuilder: (context, index) {
                   final item = mahasiswa[index];
-                  return ListTile(
-                    title: Text(item['nama']),
-                    subtitle: Text(item['jurusan']),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.edit),
-                          onPressed: () => isiFormUntukEdit(item),
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.delete),
-                          onPressed: () => hapusData(item['id']),
-                        ),
-                      ],
+                  return Card(
+                  color: Colors.lightBlue[50],
+                  child: ListTile(
+                    title: Text(
+                    item['nama'],
+                    style: TextStyle(color: Colors.blue[800]),
                     ),
+                    subtitle: Text(
+                    item['jurusan'],
+                    style: TextStyle(color: Colors.blue[600]),
+                    ),
+                    trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                      icon: Icon(Icons.edit, color: Colors.blue[700]),
+                      onPressed: () => isiFormUntukEdit(item),
+                      ),
+                      IconButton(
+                      icon: Icon(Icons.delete, color: Colors.blue[900]),
+                      onPressed: () => hapusData(item['id']),
+                      ),
+                    ],
+                    ),
+                  ),
                   );
                 },
               ),
