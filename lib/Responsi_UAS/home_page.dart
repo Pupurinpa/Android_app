@@ -136,6 +136,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: Text(lagu.judulLagu),
                   subtitle: Text('${lagu.penyanyi} • ${lagu.jenis}'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => DetailPage(lagu: lagu),
+                      ),
+                    );
+                  },
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -158,6 +166,40 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () => _showForm(),
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  final Lagu lagu;
+
+  const DetailPage({super.key, required this.lagu});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(lagu.judulLagu)),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Image.network(
+                lagu.gambar,
+                height: 200,
+                errorBuilder: (_, __, ___) => const Icon(Icons.music_note, size: 100),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Text('Kode Lagu: ${lagu.kodeLagu}', style: const TextStyle(fontSize: 16)),
+            Text('Judul Lagu: ${lagu.judulLagu}', style: const TextStyle(fontSize: 16)),
+            Text('Pencipta: ${lagu.pencipta}', style: const TextStyle(fontSize: 16)),
+            Text('Penyanyi: ${lagu.penyanyi}', style: const TextStyle(fontSize: 16)),
+            Text('Jenis Lagu: ${lagu.jenis}', style: const TextStyle(fontSize: 16)),
+          ],
+        ),
       ),
     );
   }
